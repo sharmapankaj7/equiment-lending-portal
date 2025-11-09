@@ -22,8 +22,8 @@ const borrowRequestSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['pending', 'approved', 'rejected', 'borrowed', 'returned'],
-    default: 'pending'
+    enum: ['PENDING', 'APPROVED', 'REJECTED', 'RETURNED', 'OVERDUE'],
+    default: 'PENDING'
   },
   requestDate: {
     type: Date,
@@ -35,6 +35,10 @@ const borrowRequestSchema = new mongoose.Schema({
   expectedReturnDate: {
     type: Date,
     required: [true, 'Please provide expected return date']
+  },
+  dueDate: {
+    type: Date,
+    required: [true, 'Please provide due date']
   },
   actualReturnDate: {
     type: Date
@@ -54,6 +58,12 @@ const borrowRequestSchema = new mongoose.Schema({
     type: String,
     default: ''
   }
+}, {
+  timestamps: true
 });
+
+// Index for querying overdue items efficiently
+borrowRequestSchema.index({ status: 1, dueDate: 1 });
+borrowRequestSchema.index({ user: 1, status: 1 });
 
 module.exports = mongoose.model('BorrowRequest', borrowRequestSchema);
