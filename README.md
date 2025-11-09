@@ -239,7 +239,7 @@ After seeding the database, use these credentials to login:
 |------|-------|----------|
 | Admin | admin@school.edu | admin123 |
 | Staff | staff@school.edu | staff123 |
-| Student | john@school.edu | student123 |
+| Student | pankaj@school.edu | student123 |
 | Student | jane@school.edu | student123 |
 
 ## 📡 API Endpoints
