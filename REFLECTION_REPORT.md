@@ -4,7 +4,6 @@
 **Student Name:** Pankaj Sharma  
 **Course:** Full Stack Application Development (FSAD)  
 **Institution:** BITS Pilani  
-**Date:** November 9, 2025  
 
 ---
 
