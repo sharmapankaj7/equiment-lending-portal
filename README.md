@@ -9,6 +9,8 @@ A full-stack web application for managing school equipment loans, built with Rea
 
 This is a comprehensive equipment lending management system developed in two phases:
 
+**Demo Video** - https://drive.google.com/drive/folders/12jYrCu6BifmO8r60FXkMmMnWtyXArD4z?usp=sharing
+
 - **Phase 1 (Manual):** Core functionality built entirely without AI assistance
 - **Phase 2 (AI-Assisted):** Enhanced version with notifications, analytics, and automation
 
