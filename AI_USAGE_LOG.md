@@ -2,7 +2,6 @@
 
 ## Project: Equipment Lending Portal - Enhanced Version
 
-**Date Started:** November 9, 2025  
 **Branch:** phase2-ai-assisted  
 **AI Tool Used:** GitHub Copilot / Claude AI  
 **Approach:** Option B - Improve/refactor the manual version
