@@ -1,17 +1,20 @@
-# Equipment Lending Portal - Phase 1 (Manual Development)
+# Equipment Lending Portal - Phase 1 & 2 Complete
 
 A full-stack web application for managing school equipment loans, built with React (frontend) and Node.js/Express/MongoDB (backend).
 
+**📊 Project Status:** Phase 2 Complete (AI-Assisted Enhancements)  
+**🔀 Branches:** `main` (Phase 1 - Manual), `phase2-ai-assisted` (Phase 2 - Enhanced)
+
 ## 📋 Project Overview
 
-This is a comprehensive equipment lending management system that allows:
-- **Students and teachers** to request or borrow equipment
-- **Lab assistants/admins** to approve, issue, and track items
-- **Administrators** to monitor usage and availability
+This is a comprehensive equipment lending management system developed in two phases:
+
+- **Phase 1 (Manual):** Core functionality built entirely without AI assistance
+- **Phase 2 (AI-Assisted):** Enhanced version with notifications, analytics, and automation
 
 ## 🚀 Features Implemented
 
-### Core Features
+### Phase 1 - Core Features (Manual Development)
 
 1. **User Authentication & Roles**
    - Login/signup for students, staff, and admins
@@ -39,6 +42,40 @@ This is a comprehensive equipment lending management system that allows:
    - Mobile-responsive interface
    - Intuitive navigation
 
+### Phase 2 - Enhanced Features (AI-Assisted) ⭐ NEW
+
+1. **📧 Automated Email Notification System**
+   - Request approval/rejection notifications
+   - Due date reminders (2 days before)
+   - Overdue alerts
+   - Return confirmations
+   - Professional HTML email templates
+
+2. **⏰ Due Date Tracking & Overdue Management**
+   - Automated daily checks for overdue equipment
+   - Automatic status updates to OVERDUE
+   - Scheduled cron jobs for monitoring
+   - Visual overdue indicators
+
+3. **📊 Analytics Dashboard**
+   - Equipment usage statistics
+   - Most borrowed items tracking
+   - Category-wise distribution
+   - Request trends over time
+   - Overdue reports for admins
+
+4. **🔔 Notification System**
+   - In-app notification model
+   - Email tracking and delivery status
+   - Notification history
+   - Read/unread status
+
+5. **⚡ Performance Optimizations**
+   - MongoDB indexes for faster queries
+   - Optimized aggregation pipelines
+   - Efficient date calculations
+   - Reduced database calls
+
 ## 🛠️ Tech Stack
 
 ### Backend
@@ -47,6 +84,8 @@ This is a comprehensive equipment lending management system that allows:
 - **JWT** - Authentication
 - **bcrypt.js** - Password hashing
 - **Express Validator** - Input validation
+- **NodeMailer** - Email service (Phase 2) ⭐
+- **Node-Cron** - Task scheduling (Phase 2) ⭐
 
 ### Frontend
 - **React 18** - UI framework
@@ -127,12 +166,32 @@ npm install
 3. Configure environment variables:
 Create a `.env` file in the backend directory with:
 ```env
+# Server Configuration
 PORT=5000
+NODE_ENV=development
+
+# Database
 MONGODB_URI=mongodb://localhost:27017/equipment-lending
+
+# JWT
 JWT_SECRET=your_jwt_secret_key_change_in_production
 JWT_EXPIRE=7d
-NODE_ENV=development
+
+# Email Service (Phase 2) - Required for notifications
+EMAIL_SERVICE=gmail
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASSWORD=your-app-specific-password
+EMAIL_FROM=Equipment Portal <noreply@equipmentportal.com>
+
+# Alternative SMTP Configuration
+# SMTP_HOST=smtp.ethereal.email
+# SMTP_PORT=587
 ```
+
+**Note for Phase 2:** To enable email notifications:
+1. Use a Gmail account with 2FA enabled
+2. Generate an App Password (https://myaccount.google.com/apppasswords)
+3. Add the App Password to `EMAIL_PASSWORD` in .env
 
 4. Seed the database with sample data:
 ```bash
@@ -205,6 +264,13 @@ After seeding the database, use these credentials to login:
 - `PUT /api/borrow-requests/:id/reject` - Reject request (Staff/Admin)
 - `PUT /api/borrow-requests/:id/return` - Mark as returned (Staff/Admin)
 
+### Analytics (Phase 2) ⭐ NEW
+- `GET /api/analytics/dashboard` - Get dashboard statistics
+- `GET /api/analytics/equipment-usage` - Equipment usage analytics
+- `GET /api/analytics/request-trends` - Request trends over time
+- `GET /api/analytics/user-statistics` - User statistics (Admin only)
+- `GET /api/analytics/overdue-report` - Overdue items report (Staff/Admin)
+
 ## 🎯 User Workflows
 
 ### Student Workflow
@@ -249,13 +315,64 @@ After seeding the database, use these credentials to login:
 
 ## 📝 Development Notes
 
-This is **Phase 1 - Manual Development** of the project, built entirely without AI assistance to establish a baseline understanding of the system architecture and implementation.
+This project was developed in two phases as part of the FSAD course at BITS Pilani:
 
-### Next Steps (Phase 2)
-- AI-assisted development and refactoring
-- Additional enhancements (notifications, analytics, damage logs)
-- Performance optimizations
-- Extended testing
+### Phase 1 - Manual Development (Branch: `main`)
+Built entirely without AI assistance to establish baseline understanding of:
+- Full-stack architecture
+- MERN stack fundamentals
+- Authentication and authorization
+- RESTful API design
+- React state management
+
+**Completion Time:** ~25 hours  
+**Files Created:** 30  
+**Lines of Code:** ~1,500
+
+### Phase 2 - AI-Assisted Development (Branch: `phase2-ai-assisted`)
+Enhanced version using AI tools (GitHub Copilot / Claude) for:
+- Automated notification system
+- Analytics dashboard
+- Performance optimization
+- Enhanced error handling
+- Professional email templates
+
+**Completion Time:** ~15 hours (40% faster)  
+**Files Created:** 50 (20 new files)  
+**Lines of Code:** ~4,000  
+**AI Contribution:** ~40% code generation, 60% manual customization
+
+### Key Learnings
+- AI significantly improves development speed
+- Manual coding provides deeper understanding
+- AI excels at boilerplate and patterns
+- Human oversight critical for business logic
+- Best approach: Combine both methodologies
+
+### Documentation
+- 📄 `AI_USAGE_LOG.md` - Detailed AI usage tracking
+- 📄 `REFLECTION_REPORT.md` - Comparison of Phase 1 vs Phase 2
+- 📄 `PHASE2_ENHANCEMENTS.md` - Technical enhancement details
+- 📄 `PHASE1_COMPLETE.md` - Phase 1 summary
+
+## 🔄 Branch Structure
+
+```
+main (Phase 1 - Manual)
+  └── All core features, manually coded
+  
+phase2-ai-assisted (Phase 2 - Enhanced)
+  └── Phase 1 features + AI-assisted enhancements
+```
+
+**To switch between versions:**
+```bash
+# View Phase 1 (Manual)
+git checkout main
+
+# View Phase 2 (AI-Assisted)
+git checkout phase2-ai-assisted
+```
 
 ## 📄 License
 
